@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="test">
+    <head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="navbar" ng-controller="NavBarController">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Hello application</a>
+                <ul class="nav">
+                    <li ng-class="{active: isHello()}"><a href="#/hello"><i class="icon-home"></i>Hello</a></li>
+                    <li ng-class="{active: isEvents()}"><a href="#/events"><i class="icon-time"></i>Events</a></li>
+                </ul>
+            </div>
+        </div>
+        <div ng-view></div>
+    </body>
+</html>

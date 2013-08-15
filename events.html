@@ -1,9 +1,17 @@
 <h1>Events</h1>
+<p class="label label-info">This page makes a demonstration of angularjs event and pluralize handling.</p>
 <div class="row">
     <div class="span6 text-center">
-        <button ng-click="click()" class="btn btn-info">Click me!</button>
+        <button ng-click="click()" class="btn btn-info">Click me</button>
     </div>
     <div class="span6 text-center">
-        <p>I've been clicked {{clicksCount}} times</p>
+        <p>
+            <ng-pluralize count="clicksCount"
+                when="{'0': 'I have not been clicked.',
+                '1': 'I have been clicked once.',
+                '2': 'I have been clicked twice.',
+                'other': 'I have been clicked {} times.'}">
+            </ng-pluralize>
+        </p>
     </div>
 </div>

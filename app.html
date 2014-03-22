@@ -1,22 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" ng-app="test">
     <head>
     <meta charset="utf-8">
     <title>My HTML File</title>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="app.js"></script>
     </head>
     <body>
-        <div class="navbar" ng-controller="NavBarController">
-            <div class="navbar-inner">
-                <a class="brand" href="#">AngularJS test</a>
-                <ul class="nav">
-                    <li ng-class="{active: isHello()}"><a href="#/hello"><i class="icon-home"></i>Hello</a></li>
-                    <li ng-class="{active: isEvents()}"><a href="#/events"><i class="icon-time"></i>Events</a></li>
-                </ul>
-            </div>
-        </div>
-        <div ng-view></div>
+        <header>
+            <nav class="navbar navbar-default" role="navigation" ng-controller="NavBarController">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">AngularJS test</div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{active: isHello()}"><a href="#/hello"><span class="glyphicon glyphicon-home"></span> Hello</a></li>
+                            <li ng-class="{active: isEvents()}"><a href="#/events"><span class="glyphicon glyphicon-time"></span> Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div ng-view></div>
+        </main>
     </body>
 </html>

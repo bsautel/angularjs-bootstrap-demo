@@ -1,9 +1,14 @@
 <h1>Hello {{name}}</h1>
-<form class="form-search">
-    <span class="help-block">Oh sorry, your name is maybe not Angular...</span>
-    <label for="name">What is it?</label>
-    <div class="input-prepend">
-        <span class="add-on"><i class="icon-edit"></i></span>
-        <input id="name" type="text" ng-model="name" placeholder="Your name" />
-    </div>
-</form>
+
+<div class="container-fluid">
+    <form role="form" class="form-horizontal">
+        <p class="help-block">Oh sorry, your name is maybe not Angular...</p>
+
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">What's your name?</label>
+            <div class="col-sm-10">
+                <input id="name" type="text" ng-model="name" placeholder="Your name" class="form-control">
+            </div>
+        </div>
+    </form>
+</div>

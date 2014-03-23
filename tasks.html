@@ -1,0 +1,52 @@
+<h1>Tasks</h1>
+
+<div class="container">
+    <button type="button" ng-show="!newTask" ng-click="createNewTask()" class="btn btn-primary btn-sm">Create a New Task</button>
+    
+    <form role="form" class="form-horizontal" ng-show="newTask" ng-submit="saveNewTask()">
+        <div class="form-group">
+            <label for="label" class="col-sm-2 control-label">New Task</label>
+            <div class="col-sm-10">
+                <input label="label" type="text" ng-model="newTask.label" placeholder="Label" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-default" ng-click="cancelTaskCreation()">Cancel</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="!isNewTaskValid()">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <p class="text-center">
+        <span class="label" ng-class="{'label-default': (tasks | filter:{done: false}).length > 0,
+                                       'label-success': (tasks | filter:{done: false}).length == 0}">
+            <ng-pluralize count="(tasks | filter:{done: false}).length"
+                        when="{'0': 'All tasks done',
+                        '1': 'It remains one task to do',
+                        'other': 'It remains {} tasks to do'}">
+            </ng-pluralize>
+        </span>
+    </p>
+
+    <table class="table table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Done</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="task in tasks" ng-class="{'success': task.done}">
+                <td><input type="checkbox" ng-model="task.done"></td>
+                <td>
+                    {{task.label}}
+                </td>
+                <td>
+                    <button type="button" ng-click="deleteTask(task)" class="btn btn-warning btn-xs">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

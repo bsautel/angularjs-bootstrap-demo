@@ -1,14 +1,9 @@
 'use strict';
 
-function HelloController($scope) {
-    $scope.name = 'Angular';
-}
+var homeRoute = '/home';
+var tasksRoute = '/tasks';
 
-function EventsController($scope) {
-    $scope.clicksCount = 0;
-    $scope.click = function click() {
-        this.clicksCount++;
-    }
+function HelloController($scope) {
 }
 
 function TasksController($scope) {
@@ -39,21 +34,17 @@ angular.module('test', []).config(
         '$routeProvider',
         function($routeProvider) {
             $routeProvider.
-                when('/hello', {templateUrl: 'hello.html', controller: HelloController}).
-                when('/events', {templateUrl: 'events.html', controller: EventsController}).
-                when('/tasks', {templateUrl: 'tasks.html', controller: TasksController}).
-                otherwise({redirectTo: '/hello'});
+                when(homeRoute, {templateUrl: 'home.html', controller: HelloController}).
+                when(tasksRoute, {templateUrl: 'tasks.html', controller: TasksController}).
+                otherwise({redirectTo: homeRoute});
             }
     ]);
 
 function NavBarController($scope, $location) {
     $scope.isHello = function isHello() {
-        return $location.path() == '/hello';
-    };
-    $scope.isEvents = function isEvents() {
-        return $location.path() == '/events';
+        return $location.path() == homeRoute;
     };
     $scope.isTasks = function isTasks() {
-        return $location.path() == '/tasks';
+        return $location.path() == tasksRoute;
     };
 }

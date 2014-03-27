@@ -29,7 +29,7 @@ function TasksController($scope) {
     };
 }
 
-angular.module('demo', []).config(
+angular.module('demo', ['ngRoute']).config(
     [
         '$routeProvider',
         function($routeProvider) {
